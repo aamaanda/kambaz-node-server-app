@@ -28,11 +28,16 @@ app.use(session(sessionOptions));
 app.use(
   cors({
     credentials: true,
-    origin:
-      process.env.NETLIFY_URL ||
-      "http://localhost:5173" ||
-      "http://localhost:4000" ||
+    origin: [
+      process.env.NETLIFY_URL,
+      "http://localhost:5173",
+      "http://localhost:4000",
       "https://a5--amanda-project.netlify.app",
+    ].filter(Boolean),
+    // process.env.NETLIFY_URL ||
+    // "http://localhost:5173" ||
+    // "http://localhost:4000" ||
+    // "https://a5--amanda-project.netlify.app",
   })
 );
 app.use(express.json());
