@@ -6,12 +6,22 @@ export function findAllCourses() {
 export function findCoursesForEnrolledUser(userId) {
   const { courses, enrollments } = Database;
   const enrolledCourses = courses.filter((course) =>
-    enrollments.some((enrollment) => enrollment.user === userId && enrollment.course === course._id));
+    enrollments.some(
+      (enrollment) =>
+        enrollment.user === userId && enrollment.course === course._id
+    )
+  );
   return enrolledCourses;
 }
 
+// export function createCourse(course) {
+//   const newCourse = { ...course, _id: uuidv4() };
+//   Database.courses = [...Database.courses, newCourse];
+//   return newCourse;
+// }
+
 export function createCourse(course) {
-  const newCourse = { ...course, _id: uuidv4() };
+  const newCourse = { ...course, _id: Date.now().toString() };
   Database.courses = [...Database.courses, newCourse];
   return newCourse;
 }
@@ -24,12 +34,16 @@ export function deleteCourse(courseId) {
   );
 }
 
+// export function updateCourse(courseId, courseUpdates) {
+//   const { courses } = Database;
+//   const course = courses.find((course) => course._id === courseId);
+//   Object.assign(course, courseUpdates);
+//   return course;
+// }
+
 export function updateCourse(courseId, courseUpdates) {
-  const { courses } = Database;
+  const { courses, enrollments } = Database;
   const course = courses.find((course) => course._id === courseId);
   Object.assign(course, courseUpdates);
   return course;
 }
-
-
-

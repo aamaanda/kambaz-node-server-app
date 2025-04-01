@@ -2,10 +2,10 @@ import * as dao from "./dao.js";
 import * as courseDao from "../Courses/dao.js";
 
 export default function UserRoutes(app) {
-  const createUser = (req, res) => { };
-  const deleteUser = (req, res) => { };
-  const findAllUsers = (req, res) => { };
-  const findUserById = (req, res) => { };
+  const createUser = (req, res) => {};
+  const deleteUser = (req, res) => {};
+  const findAllUsers = (req, res) => {};
+  const findUserById = (req, res) => {};
   const updateUser = (req, res) => {
     const userId = req.params.userId;
     const userUpdates = req.body;
@@ -32,11 +32,11 @@ export default function UserRoutes(app) {
     if (currentUser) {
       req.session["currentUser"] = currentUser;
       res.json(currentUser);
+      // res.status(200).json(currentUser);
     } else {
       res.status(401).json({ message: "Unable to login. Try again later." });
     }
   };
-
 
   const signout = (req, res) => {
     req.session.destroy();

@@ -31,6 +31,7 @@ app.use(
     origin:
       process.env.NETLIFY_URL ||
       "http://localhost:5173" ||
+      "http://localhost:4000" ||
       "https://a5--amanda-project.netlify.app",
   })
 );
