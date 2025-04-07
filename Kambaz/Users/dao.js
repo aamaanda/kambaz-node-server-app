@@ -1,5 +1,3 @@
-// import db from "../Database/index.js";
-import model from "./model.js";
 import { v4 as uuidv4 } from "uuid";
 import model from "./model.js";
 
