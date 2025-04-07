@@ -1,0 +1,1 @@
+export PATH="$PATH:/usr/local/mongodb-macos-x86_64-5.0.3/bin"
